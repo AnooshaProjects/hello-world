@@ -1,6 +1,7 @@
 package com.javaProjectsBasic1.pkg1;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 import java.util.Scanner;
 import java.util.regex.Matcher;
@@ -25,25 +26,44 @@ public class ArrayRotation {
             mlist.add(matcher.group());
         }
 
-        System.out.println();
-        System.out.println("Pattern Matcher find group --> mlist size ="+ mlist.size());
-//        if(!mlist.isEmpty()) {
-//            String el0 = mlist.get(0);
-//            int numel0 = Integer.parseInt(el0);
-//            int incrdnumel0=numel0+1;
-//            System.out.println("incremented 0th element made into int type ="+incrdnumel0);
-//        }
-        for(int i=0; i<mlist.size();i++){
-            System.out.println("mlist "+i+" index element ="+mlist.get(i));
+        System.out.println("Pattern compile Matcher find group --> mlist size ="+ mlist.size());
+        if(!mlist.isEmpty()) {
+            int numRots = Integer.parseInt(mlist.get(mlist.size() - 1));
+            int lenArr=mlist.size()-1;
+            int[] arr=new int[lenArr];
+            for (int i = 0; i < lenArr; i++) {
+                System.out.println("mlist "+i+" index element ="+mlist.get(i));
+                arr[i]=Integer.parseInt(mlist.get(i));
+            }
+
+            System.out.println("Initial Given Array= "+Arrays.toString(arr));
+            int[] rotatedArr=performRotationsSimpleWay(arr,numRots);
+            System.out.println("----------------");
+            System.out.println(Arrays.toString(rotatedArr));
+            System.out.println("----------------");
         }
 
-//        int[] arr={2, 10, 6, 5, 8,4, 19, 3};
-//        int len=arr.length;
-//        int[] tempB=new int[len];
-//
-//        for(int i=0; i<len; i++){
-//            tempB[i]=arr[len-i-1];
-//        }
+    }
+
+    private static int[] performRotationsSimpleWay(int[] A, int K) {
+
+        int len=A.length;
+        int[] tempB=new int[len];
+
+        if(K==0 || ((len%K)==0))
+            return A;
+
+        int[] Acopy=Arrays.copyOf(A,len);
+        for(int j=1; j<=K; j++) {
+            tempB[0] = Acopy[len - 1];
+            for (int i = 1; i < len; i++) {
+                tempB[i] = Acopy[i - 1];
+            }
+            System.out.println("Iter "+j+" currArray= "+Arrays.toString(tempB));
+            Acopy=Arrays.copyOf(tempB,len);
+        }
+
+        return Acopy;
     }
 
 }
