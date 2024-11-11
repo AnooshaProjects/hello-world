@@ -15,7 +15,7 @@ public class ArrayRotation {
         String sin=sc.nextLine();
 
         //Pattern pattern=Pattern.compile("(\\d+)(\\s*)(\\]|,|)*(\\s*)");
-        Pattern pattern=Pattern.compile("[^\\s*(\\[|\\],)]+");
+        Pattern pattern=Pattern.compile("[^\\s*()\\[\\],]+");
 
         Matcher matcher = pattern.matcher(sin);
 
