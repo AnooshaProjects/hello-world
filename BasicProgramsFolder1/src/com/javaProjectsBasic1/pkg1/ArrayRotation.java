@@ -26,7 +26,7 @@ public class ArrayRotation {
             mlist.add(matcher.group());
         }
 
-        System.out.println("Pattern compile Matcher find group --> mlist size ="+ mlist.size());
+        System.out.println("Pattern compile regex -> Pattern Matcher String -> matcher find group ---> mlist size ="+ mlist.size());
         if(!mlist.isEmpty()) {
             int numRots = Integer.parseInt(mlist.get(mlist.size() - 1));
             int lenArr=mlist.size()-1;
@@ -40,9 +40,35 @@ public class ArrayRotation {
             int[] rotatedArr=performRotationsSimpleWay(arr,numRots);
             System.out.println("----------------");
             System.out.println(Arrays.toString(rotatedArr));
+            System.out.println("====================================");
+
+            System.out.println("Initial Given Array= "+Arrays.toString(arr));
+            int[] rotatedArrBetter1=performRotationsBetterWay1(arr,numRots);
             System.out.println("----------------");
+            System.out.println(Arrays.toString(rotatedArrBetter1));
+            System.out.println("====================================");
         }
 
+    }
+
+    private static int[] performRotationsBetterWay1(int[] arr, int numRots) {
+        int len=arr.length;
+        int[] tempArr1=new int[len];
+
+        if(numRots==0 || (len%numRots)==0)
+            return arr;
+
+        int nRots=numRots%len;
+        for(int i=0; i<len; i++){
+            if(i<nRots){
+                tempArr1[i]=arr[len-nRots+i];
+            }
+            else{
+                tempArr1[i]=arr[i-nRots];
+            }
+        }
+
+        return tempArr1;
     }
 
     private static int[] performRotationsSimpleWay(int[] A, int K) {
@@ -54,6 +80,7 @@ public class ArrayRotation {
             return A;
 
         int[] Acopy=Arrays.copyOf(A,len);
+
         for(int j=1; j<=K; j++) {
             tempB[0] = Acopy[len - 1];
             for (int i = 1; i < len; i++) {
@@ -63,7 +90,7 @@ public class ArrayRotation {
             Acopy=Arrays.copyOf(tempB,len);
         }
 
-        return Acopy;
+        return tempB;
     }
 
 }
