@@ -6,7 +6,7 @@ public class TryCatchFinallyTest1 {
 
         int c = 0;
         try {
-            c= a / b;
+            c = a / b;
             //*So, ALWAYS CATCH and then PRINT/LOG any possible exceptions,
             // Because:
             // (1) to not swallow exceptions,
