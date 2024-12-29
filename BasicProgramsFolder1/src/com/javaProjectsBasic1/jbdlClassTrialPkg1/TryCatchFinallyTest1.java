@@ -4,7 +4,7 @@ public class TryCatchFinallyTest1 {
 
     private int divide(int a, int b) {
 
-        int c=0;
+        int c = 0;
         try {
             c= a / b;
             //*So, ALWAYS CATCH and then PRINT/LOG any possible exceptions,
