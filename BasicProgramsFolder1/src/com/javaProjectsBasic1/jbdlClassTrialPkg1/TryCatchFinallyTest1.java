@@ -20,20 +20,21 @@ public class TryCatchFinallyTest1 {
             // (2) to not lose the point/line where exception occurred,
             // (3) for the flow to return back to the main method, and
             // (4) to exit gracefully with exit code 0, even when there's error.
+            //-----------------------------------------------------------------------------------------
             // NOTE (1):
             // (i) If you have catch block and log/print the error there itself,
             // then, the control will return back to the next line of the caller, execute from there,
             // and then, exit 0 gracefully.
             // (ii) Check for exact error details in the .err file AND the log file!!!!
-            // NOTE (2): If you re-throw the exception in catch back to the calling method,
-            // then, you won't know which line of the try block actually caused the error.
-            // So, be careful to not re-throw to caller if not necessary.
-            // NOTE (3): If you re-throw the exception to the caller, from catch block of callee,
+            // NOTE (2):
+            // (i) If you re-throw the exception to the caller, from catch block of callee,
             // then control won't return to next line of caller, and
-            // also, won't exit gracefully. It will return exit code 1.
+            // (ii) will exit out immediately ungracefully, with exit code 1.
+            // (iii) You get both "Caused by" and "Exception" in the error message.
+            // (iv) The "Caused by:" message gives the actual code's line number causing the exception!!
         } catch (Exception e) {
-            e.printStackTrace();
-            //throw new RuntimeException(e);
+            //e.printStackTrace();     //----> applies to case of NOTE (1) above.
+            throw new RuntimeException(e);    //----> applies to case of NOTE (2) above.
 /*
             String s=null;
             System.out.println("string s's length="+s.length());
