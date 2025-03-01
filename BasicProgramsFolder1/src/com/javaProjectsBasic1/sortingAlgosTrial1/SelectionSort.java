@@ -35,6 +35,7 @@ public class SelectionSort {
             //so we won't even need min variable, for cleaner code.
             int minIndex=i;
             //int min=arr[i];
+
             for(int j=i+1; j<arr.length; j++){
                 //NOTE1: min value and min Index BOTH keep changing inside this loop,
                 //per each new value compared to existing min at that particular time.
@@ -44,6 +45,7 @@ public class SelectionSort {
                     //min=arr[j];
                 }
             }
+
             swap(arr, i, minIndex);
             //System.out.println(Arrays.toString(arr));
         }
