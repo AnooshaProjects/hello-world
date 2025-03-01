@@ -31,14 +31,17 @@ public class SelectionSort {
 
     private static void selectionSort2Fors(int[] arr) {
         for(int i=0; i<arr.length-1; i++){
+            //NOTE2: We can just use minIndex wherever we want the value at that index,
+            //so we won't even need min variable, for cleaner code.
             int minIndex=i;
-            int min=arr[i];
+            //int min=arr[i];
             for(int j=i+1; j<arr.length; j++){
-                //Note: min value and min Index BOTH keep changing inside this loop,
+                //NOTE1: min value and min Index BOTH keep changing inside this loop,
                 //per each new value compared to existing min at that particular time.
-                if(arr[j]<min){
+                //if(arr[j]<min){
+                if(arr[j]<arr[minIndex]){
                     minIndex=j;
-                    min=arr[j];
+                    //min=arr[j];
                 }
             }
             swap(arr, i, minIndex);
