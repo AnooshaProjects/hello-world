@@ -34,6 +34,8 @@ public class SelectionSort {
             int minIndex=i;
             int min=arr[i];
             for(int j=i+1; j<arr.length; j++){
+                //Note: min value and min Index BOTH keep changing inside this loop,
+                //per each new value compared to existing min at that particular time.
                 if(arr[j]<min){
                     minIndex=j;
                     min=arr[j];
