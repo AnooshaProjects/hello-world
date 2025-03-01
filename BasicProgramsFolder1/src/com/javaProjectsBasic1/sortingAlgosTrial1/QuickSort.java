@@ -46,8 +46,10 @@ public class QuickSort {
         //But also, lowIndex and highIndex are indexes referring to the main full array locations.
         //=>lowIndex and highIndex give the part of main array that we're considering as current working sub-array.
         //NOTE2: For recursive calls to work, you always check lowIndex is less than equal to high Index.
-        //NOTE4: IMP: highIndex keeps changing for left branches of the main big tree,
-        //and lowIndex keeps changing for the right branches of the main big tree.
+        //NOTE4: IMP: Only highIndex keeps changing for only left-most sub-branches of the main big tree,
+        //and only lowIndex keeps changing for only right-most sub-branches of the main big tree.
+        //If you see right sub-sub-branch of a left sub-branch, it's low and high indexes both change.
+        //||ly, if you see any left sub-sub-branch of a right sub-branch, it's low and high indexes both change.
         if(lowIndex<highIndex){
             int pivotCorrectLocation=partitionPerPivot(arr,lowIndex,highIndex);
             quicksort(arr, lowIndex, pivotCorrectLocation-1);
