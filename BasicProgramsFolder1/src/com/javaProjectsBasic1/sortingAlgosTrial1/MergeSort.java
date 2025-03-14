@@ -17,8 +17,10 @@ public class MergeSort {
         and keep going up the tree.
         */
 
+        //GoodExampleInputArray = [82, 2, 46, 28, 25, 71]
+        int arrlength=6;
         Random rand= new Random();
-        int[] arr=new int[5];
+        int[] arr=new int[arrlength];
         for(int i=0; i<arr.length; i++){
             arr[i]=rand.nextInt(100);
         }
@@ -38,10 +40,15 @@ public class MergeSort {
         //(III) Then, combine left and right sub-arrays in numerical order of the values.
 
         if(l<r){
-
+            System.out.println("At first line entry point of recursive method.");
             int mid=(l+r)/2;
+            System.out.println("mid="+mid);
+            System.out.printf("Before mergesortRecur1: l=%d mid=%d r=%d%n",l,mid,r);
             mergesort(arr,l,mid);
+            System.out.printf("After mergesortRecur1 & Before mergeSortRecur2: l=%d mid=%d r=%d%n",l,mid,r);
             mergesort(arr,mid+1,r);
+            System.out.printf("After mergesortRecur2: %d %d%n",mid+1, r);
+            System.out.printf("Before going to merge sorting logic: l=%d, mid=%d, r=%d%n",l,mid,r);
             myMerge(arr,l,mid,r);
             //NOTE: For the main merging logic, we just pass in the whole main array, & current l,r and mid indexes.
             //Actually creating new working sub-arrays, comparing values and combining is all done in the last call.
@@ -52,7 +59,7 @@ public class MergeSort {
 
     private static void myMerge(int[] arr, int l, int mid, int r) {
         //This is actual merging logic which compares el values and merges accordingly.
-
+        System.out.printf("In myMerge(...) method: l=%d, mid=%d, r=%d%n",l,mid,r);
         //1) We need to create new left sub-array and new right sub-array,
         //and populate them with the correct values from original array using the original indexes l and r and mid,
         //so that we can easily work with comparing and combining the new/fresh sub-arrays.

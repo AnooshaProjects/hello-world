@@ -12,6 +12,7 @@ public class PermutationsOfNNumbersTrial1 {
         inputList.add(11);
         inputList.add(12);
         inputList.add(13);
+        inputList.add(14);
 
         List<List<Integer>> finalOutputList = new ArrayList<>();
         myPermutations(finalOutputList, inputList);
