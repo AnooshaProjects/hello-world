@@ -17,7 +17,8 @@ public class StringBuilderFunctions {
         System.out.println();
 
         //3. toString
-        System.out.println("String sb = "+sb.toString());
+        String str=sb.toString();
+        System.out.println("String sb = "+ str);
 
         //4. append
         sb.append("Courses");
