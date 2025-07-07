@@ -85,7 +85,7 @@ public class StringBuilderFunctions {
         //15. substring with start only
         System.out.println(sb.substring(5));
         //Q2) Did original sb itself change with substring method call?
-        System.out.println(sb );
+        System.out.println("sb = "+sb);
         //A2) No; the original sb value is intact even after substring call.
 
         //16. substring with both start and end
