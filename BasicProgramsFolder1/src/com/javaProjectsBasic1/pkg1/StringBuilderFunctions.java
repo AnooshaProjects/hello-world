@@ -17,7 +17,7 @@ public class StringBuilderFunctions {
         System.out.println();
 
         //3. toString
-        System.out.println("String sb = "+sb);
+        System.out.println("String sb = "+sb.toString());
 
         //4. append
         sb.append("Courses");
@@ -70,6 +70,13 @@ public class StringBuilderFunctions {
 
         //13. indexOf with offset
         System.out.println("2ndIndexOf ee in sb is = "+sb.indexOf("ee", sb.indexOf("ee")+1));
+
+        System.out.println("IndexOf Last without lastIndexOf method: ");
+        StringBuilder sbrev=new StringBuilder(sb.toString());
+        sbrev.reverse();
+        //int revlastoccur = sbrev.indexOf("ee");
+        int lastOccurIndex=sbrev.length() - sbrev.indexOf("ee") - "ee".length();
+        System.out.println("lastOccurIndex = "+lastOccurIndex);
 
         //14. lastIndexOf
         System.out.println("lastIndexOf ee in sb = "+sb.lastIndexOf("ee"));
