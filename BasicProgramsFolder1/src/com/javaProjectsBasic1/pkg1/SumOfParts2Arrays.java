@@ -102,7 +102,7 @@ public class SumOfParts2Arrays {
         int[] A={2, -2, -3, 3};
         int[] B={0, 0, 4, -4};
 
-        Integer[] result=retCountOfSameSumPartitionsFaster(A,B);
+        Integer[] result=retCountOfSameSumPartitions(A,B);
         System.out.println(Arrays.toString(result));
     }
 }

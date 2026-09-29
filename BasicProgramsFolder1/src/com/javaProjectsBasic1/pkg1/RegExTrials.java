@@ -21,6 +21,24 @@ public class RegExTrials {
         Matcher matcher4=pattern.matcher("e8");
         System.out.println("e8 input string Pattern Matcher find()= "+matcher4.find());
 
+        Matcher matcher42=pattern.matcher("a");
+        System.out.println("a input string Pattern Matcher find()= "+matcher42.find());
+
+        Matcher matcher43=pattern.matcher("a13");
+        System.out.println("a13 input string Pattern Matcher find()= "+matcher43.find());
+
+        Matcher matcher44=pattern.matcher("abcdab");
+        System.out.println("abcdab input string Pattern Matcher find()= "+matcher44.find());
+
+        Matcher matcher45=pattern.matcher("abcdab1234567");
+        System.out.println("abcdab1234567 input string Pattern Matcher find()= "+matcher45.find());
+
+        Matcher matcher46=pattern.matcher("a13z");
+        System.out.println("a13z input string Pattern Matcher find()= "+matcher46.find());
+
+        Matcher matcher47=pattern.matcher("a13zxy");
+        System.out.println("a13zxy input string Pattern Matcher find()= "+matcher47.find());
+
         System.out.println("------------------------------------");
         String regex="[abc]";
         String str="ab";
@@ -37,13 +55,13 @@ public class RegExTrials {
 
         //-------------------------------------------------------------------------------
         System.out.println("=================================================");
-        System.out.println("=====String matches(regex,inp) method=============");
+        System.out.println("=====String matches(regex) method=============");
         //NOTE: String str.matches(regex) => String matches matches WHOLE string only!!!
         System.out.println("ab String.matches(...) [abc] result= "+ ("ab".matches("[abc]")));
         System.out.println("d1 String.matches(...) [a-d1-7] result= "+ ("d1".matches("[a-d1-7]")));
         System.out.println("b2 String.matches(...) [a-d1-7] result= "+ ("b2".matches("[a-d1-7]")));
         System.out.println("b2 String.matches(...) [a-d1-7]+ result= "+ ("b2".matches("[a-d1-7]+")));
-        System.out.println("bd String.matches(...) [a-d1-7]+ result= "+ ("bd".matches("[a-d1-7]+")));
+        System.out.println("bd12 String.matches(...) [a-d1-7]+ result= "+ ("bd12".matches("[a-d1-7]+")));
         System.out.println("bf String.matches(...) [a-d1-7]+ result= "+ ("bf".matches("[a-d1-7]+")));
         System.out.println("bc String.matches(...) [a-d1-7] result= "+ ("bc".matches("[a-d1-7]")));
         System.out.println("a String.matches(...) [a-d1-7] result= "+ ("a".matches("[a-d1-7]")));
@@ -90,13 +108,15 @@ public class RegExTrials {
         System.out.println("matcher mr groupCount= "+mr.groupCount());
 
         System.out.println("------Next Pattern RegEx Groups------");
-        Pattern pGroups=Pattern.compile("(geeks[0-9]+).(for[1-5]*)");
-        Matcher mGroups= pGroups.matcher("geeks12bforxxxxxgeeks8pfor52689yyygeeks3!for22geeksgeeksgeeks");
+        String regExPattern="(geeks[0-9]+).(for[1-5]*)";
+        Pattern pGroups=Pattern.compile(regExPattern);
+        System.out.println("RegEx pattern = "+regExPattern);
+        Matcher mGroups= pGroups.matcher("geeks12bforxxxxxgeeks8pfor52312689yyygeeks3!for223356geeksgeeksgeeks0zforhigeeks1ifor2");
         System.out.println("matcher mGroups groupCount= "+mGroups.groupCount());//2
         int ctFinds=0;
         while(mGroups.find()){
             ctFinds++;
-            System.out.println("In if, group(0) is= "+mGroups.group(0)
+            System.out.println("In while(matcherObj.find()), group(0) is= "+mGroups.group(0)
                     +" | group(1)= "+mGroups.group(1)
                     +" | group(2)= "+mGroups.group(2)
                     +" | group()= "+mGroups.group());

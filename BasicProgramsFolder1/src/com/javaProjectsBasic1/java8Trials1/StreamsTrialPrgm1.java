@@ -17,7 +17,7 @@ public class StreamsTrialPrgm1 {
 
         //NOTE: any Stream, once it is used up by any stream calls,
         //it cannot be used to perform any operations on same stream again.
-        //so i've to comment out previous Stream calls to make different stream calls and do trials.
+        //So i've to comment out previous Stream calls to make different stream calls and do trials.
 
 /*       myIntStream.forEach( el -> {
                                        System.out.print(el);
@@ -44,7 +44,7 @@ public class StreamsTrialPrgm1 {
         String str = Arrays.toString(myIntArrayFromStream);
         System.out.println(str);
 
-        //NOTE: In below 2 examples, stream(...) is a method on Collection/Array Class!!!!
+        //NOTE: In below 2 examples, stream(...) is a method on Collection/Arrays Class!!!!
         //array to Stream
         Stream<Integer> streamFromArray=Arrays.stream(myIntArrayFromStream);
         streamFromArray.forEach(el -> System.out.print(el+" "));

@@ -25,13 +25,13 @@ public class StringBuilderFunctions {
         System.out.println("sb append Courses result= "+sb);
 
         //5. insert
-        sb.insert(2,"Hey");
-        System.out.println("sb insert-Hey result = "+sb );
+        sb.insert(2,"Hello");
+        System.out.println("sb insert-Hello result = "+sb );
 
         //6. replace
         int rstrt=6;
         int rendt =10;
-        sb.replace(rstrt, rendt, "SaintTyagaraj");
+        sb.replace(6, 10, "SaintTyagaraj");
         System.out.printf("sb replace %d,%d,Saint result = %s",rstrt, rendt,sb );
         System.out.println();
 
@@ -43,15 +43,16 @@ public class StringBuilderFunctions {
         System.out.println();
 
         //8. chartAt
-        int chrat=3;
-        System.out.printf("sb charAt %d = %s", chrat, sb.charAt(chrat));
+        int posn=3;
+        char chrAt=sb.charAt(posn);
+        System.out.printf("sb charAt %d = %s", posn, chrAt);
         System.out.println();
 
         //9. setCharAt
-        int setchrIdx = 6;
+        int idx = 6;
         char chr='j';
-        sb.setCharAt(setchrIdx, chr);
-        System.out.printf("sb.setCharAt index=%d newchar=%s result = %s",setchrIdx, chr, sb );
+        sb.setCharAt(idx, chr);
+        System.out.printf("sb.setCharAt index=%d newchar=%s result = %s",idx, chr, sb );
         System.out.println();
 
         //10. deleteCharAt
